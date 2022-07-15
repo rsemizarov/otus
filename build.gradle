@@ -25,6 +25,10 @@ allprojects {
     apply plugin: "io.spring.dependency-management"
     dependencyManagement {
         dependencies {
+            imports {
+                mavenBom "org.springframework.boot:spring-boot-dependencies:2.7.0"
+                mavenBom "org.testcontainers:testcontainers-bom:1.17.1"
+            }
             dependency "com.google.guava:guava:${Versions.guava}"
         }
     }
@@ -37,4 +41,9 @@ task managedVersions {
             println it
         }
     }
+}
+
+//gradle -q hello
+task hello {
+    println 'Hello world!'
 }
